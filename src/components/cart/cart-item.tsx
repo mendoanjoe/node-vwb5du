@@ -16,7 +16,7 @@ export function CartItem({ item }: CartItemProps) {
   return (
     <div className="flex items-start space-x-3">
       <div className="relative size-20 overflow-hidden rounded-md">
-        <Image className="absolute inset-0 h-full w-full object-cover" src={item.image} alt={item.name} />
+        <Image className="absolute inset-0 h-full w-full object-cover" src={item.image} alt={item.name} fill />
       </div>
       
       <div className="flex-1 space-y-3">

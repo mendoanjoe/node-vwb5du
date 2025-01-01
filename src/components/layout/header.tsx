@@ -128,6 +128,7 @@ export default function Header() {
                                           >
                                             <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                               <Image
+                                                fill
                                                 src={itemm.source}
                                                 alt="Models sitting back to back, wearing Basic Tee in black and bone."
                                                 className="object-cover object-center"
@@ -209,11 +210,12 @@ export default function Header() {
                 </div>
                 <Link href="#" className="lg:hidden">
                   <span className="sr-only">Your Company</span>
-                  <Image
+                  {/* <Image
+                    fill
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt=""
                     className="h-8 w-auto"
-                  />
+                  /> */}
                 </Link>
 
                 <div className="flex flex-1 items-center justify-end">
