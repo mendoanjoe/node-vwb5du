@@ -53,6 +53,7 @@ export const useCart = create<CartStore>()(
           };
         })
       },
+
       updateQuantity: (itemId, quantity) => {
         set((state) => {
           const updatedItems = state.cart.items.map((i) =>
@@ -66,6 +67,7 @@ export const useCart = create<CartStore>()(
           };
         })
       },
+
       clearCart: () => set({ cart: { items: [], total: 0 } }),
     }),
     {

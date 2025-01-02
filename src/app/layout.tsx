@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/header";
+import { FloatingChat } from "@/components/chat/floating-chat";
 
 import { Afacad } from 'next/font/google'
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       >
         <Header />
         {children}
+        <FloatingChat />
       </body>
     </html>
   );

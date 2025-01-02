@@ -12,7 +12,7 @@ interface ProductCardProps {
   isBestSeller?: boolean
 }
 
-export default function ProductCard({
+export function ProductCard({
   title,
   price,
   points,

@@ -4,61 +4,58 @@ import Link from "next/link";
 import { useCart } from "@/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { Cart } from "@/components/cart/cart";
+import { Wishlist } from "@/components/wishlist/wishlist";
 import Image from "next/image";
 
 export default function Header() {
   const navigationMenu = [
-    {
-      text: "Beranda",
-      link: "#",
-    },
-    {
-      text: "Belanja",
-      link: "#",
-      children: [
-        {
-          text: "New Arrivals",
-          link: "#",
-          source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        },
-        {
-          text: "Basic Tees",
-          link: "#",
-          source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        },
-        {
-          text: "Accessories",
-          link: "#",
-          source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        },
-        {
-          text: "Carry",
-          link: "#",
-          source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        },
-      ]
-    },
-    // {
-    //   text: "Personalisasi",
-    //   link: "#",
-    // },
-    {
-      text: "Outlet Cabang",
-      link: "#",
-    },
-    {
-      text: "Artikel",
-      link: "#",
-    },
-    {
-      text: "Logam Mulia",
-      link: "#",
-    },
-    {
-      text: "Tentang",
-      link: "#",
-    },
-  ]
+  {
+    text: "Beranda",
+    link: "/",
+  },
+  {
+    text: "Belanja",
+    link: "/belanja",
+    children: [
+      {
+        text: "New Arrivals",
+        link: "/belanja/new-arrivals",
+        source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+      {
+        text: "Basic Tees",
+        link: "/belanja/basic-tees",
+        source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+      {
+        text: "Accessories",
+        link: "/belanja/accessories",
+        source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+      {
+        text: "Carry",
+        link: "/belanja/carry",
+        source: "https://images.unsplash.com/photo-1733299703906-29f25913ee6e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+    ]
+  },
+  {
+    text: "Outlet Cabang",
+    link: "/outlet-cabang",
+  },
+  {
+    text: "Artikel",
+    link: "/artikel",
+  },
+  {
+    text: "Logam Mulia",
+    link: "/logam-mulia",
+  },
+  {
+    text: "Tentang",
+    link: "/tentang",
+  },
+];
 
   const { addItem } = useCart();
 
@@ -128,9 +125,9 @@ export default function Header() {
                                           >
                                             <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                               <Image
-                                                fill
                                                 src={itemm.source}
                                                 alt="Models sitting back to back, wearing Basic Tee in black and bone."
+                                                fill
                                                 className="object-cover object-center"
                                               />
                                             </div>
@@ -210,12 +207,6 @@ export default function Header() {
                 </div>
                 <Link href="#" className="lg:hidden">
                   <span className="sr-only">Your Company</span>
-                  {/* <Image
-                    fill
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                    className="h-8 w-auto"
-                  /> */}
                 </Link>
 
                 <div className="flex flex-1 items-center justify-end">
@@ -223,10 +214,7 @@ export default function Header() {
                     <span className="sr-only">User</span>
                     <User2Icon className="size-4" />
                   </Link>
-                  <Link href="#" className="p-2 hover:text-gray-500">
-                    <span className="sr-only">Wishlist</span>
-                    <HeartIcon className="size-4" />
-                  </Link>
+                  <Wishlist />
                   <Cart />
                   <Link href="#" className="relative p-2 hover:text-gray-500">
                     <span className="sr-only">Live</span>
